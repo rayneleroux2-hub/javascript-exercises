@@ -1,0 +1,16 @@
+#container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.square {
+    width: 6.25%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid blue;
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.square.active {
+    background-color: purple;
+}
