@@ -9,7 +9,30 @@ for (let i = 0; i < 256; i++) {
 let squares = document.querySelectorAll(".square");
     squares.forEach(square => {
         square.addEventListener("mouseenter", () => {
-          square.classList.add("active");  
+          let darkness = parseFloat(square.dataset.darkness) || 0;
+          let r = square.dataset.r;
+          let g = square.dataset.g;
+          let b = square.dataset.b;
+
+          if (!r && !g && !b) {
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+
+            square.dataset.r = r;
+            square.dataset.g = g;
+            square.dataset.b = b;
+          }
+          if (darkness < 1) {
+            darkness += 0.1;
+            square.dataset.darkness = darkness;
+
+            const newR = Math.floor(r * (1 - darkness));
+            const newG = Math.floor(g * (1 - darkness));
+            const newB = Math.floor(b * (1 - darkness));
+         
+          square.style.backgroundColor = `rgb(${newR}, ${newG}, ${newB})`;
+          }
         });
       });
 
@@ -35,10 +58,35 @@ for (let i = 0; i< num * num; i++) {
   container.appendChild(square)
 }
 
- squares = document.querySelectorAll(".square");
+squares = document.querySelectorAll(".square");
     squares.forEach(square => {
         square.addEventListener("mouseenter", () => {
-          square.classList.add("active");  
+             
+          let darkness = parseFloat(square.dataset.darkness) || 0;
+          let r = square.dataset.r;
+          let g = square.dataset.g;
+          let b = square.dataset.b;
+
+          if (!r && !g && !b) {
+            r = Math.floor(Math.random() * 256);
+            g = Math.floor(Math.random() * 256);
+            b = Math.floor(Math.random() * 256);
+
+            square.dataset.r = r;
+            square.dataset.g = g;
+            square.dataset.b = b;
+          }
+          if (darkness < 1) {
+            darkness += 0.1;
+            square.dataset.darkness = darkness;
+
+            const newR = Math.floor(r * (1 - darkness));
+            const newG = Math.floor(g * (1 - darkness));
+            const newB = Math.floor(b * (1 - darkness));
+         
+          square.style.backgroundColor = `rgb(${newR}, ${newG}, ${newB})`;
+          }
+
         });
     });
       

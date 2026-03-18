@@ -9,8 +9,6 @@
     border: 1px solid blue;
     box-sizing: border-box;
     margin: 0;
+    background-color: white;
 }
 
-.square.active {
-    background-color: purple;
-}
